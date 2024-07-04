@@ -1,0 +1,108 @@
+/* Celular */
+@media (max-width: 480px) {
+  .nav-div-icon,
+  .btn-div-login {
+    display: none;
+  }
+
+  header {
+    font-size: 16px;
+    height: 9svh;
+  }
+
+  .nav-botoes {
+    width: 100%;
+  }
+
+  .container1 {
+    margin-top: 9svh;
+    height: 91svh;
+  }
+
+  .container1__div__header__titulo {
+    font-size: 40px;
+  }
+
+  .container2 {
+    height: 91vh;
+  }
+}
+
+/* Celular deitado */
+@media (min-width: 481px) and (max-width: 767px) {
+  .nav-div-icon,
+  .btn-div-login {
+    display: none;
+  }
+
+  header {
+    height: 10vh;
+  }
+
+  .nav-botoes {
+    width: 100%;
+  }
+
+  .container1 {
+    margin-top: 10vh;
+    height: 90vh;
+  }
+
+  .container1__div__header__titulo {
+    font-size: 40px;
+  }
+
+  .container2 {
+    height: 91vh;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  header {
+    font-size: 18px;
+    height: 7vh;
+  }
+
+  nav > div:nth-child(2) {
+    width: 65%;
+  }
+
+  .container1 {
+    margin-top: 7vh;
+    height: 93vh;
+  }
+
+  .container1__div__header__titulo {
+    font-size: 45px;
+  }
+
+  .container2 {
+    height: 93vh;
+  }
+}
+
+/* Computador */
+@media (min-width: 1025px) {
+  header {
+    font-size: 18px;
+    height: 10vh;
+  }
+
+  nav > div:nth-child(2) {
+    width: 50%;
+  }
+
+  .container1 {
+    margin-top: 10vh;
+    height: 90vh;
+  }
+
+  .container1__div__header__titulo {
+    font-size: 45px;
+  }
+
+  .container2 {
+    height: 90vh;
+  }
+}
