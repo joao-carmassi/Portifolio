@@ -54,25 +54,13 @@ nav > div:nth-child(1) {
   justify-content: end;
 }
 
-nav > div:nth-child(1) .nav-icon {
+nav > div:nth-child(1) > img {
   border-radius: 50%;
   padding: 1px;
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   background-position: center;
   cursor: pointer;
-}
-
-nav[theme="black"] .nav-icon {
-  transition: 0.5s;
-  background-color: white;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-analyze' width='44' height='44' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23000000' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M20 11a8.1 8.1 0 0 0 -6.986 -6.918a8.095 8.095 0 0 0 -8.019 3.918' /%3E%3Cpath d='M4 13a8.1 8.1 0 0 0 15 3' /%3E%3Cpath d='M19 16m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0' /%3E%3Cpath d='M5 8m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0' /%3E%3Cpath d='M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0' /%3E%3C/svg%3E");
-}
-
-nav[theme="white"] .nav-icon {
-  transition: 1s;
-  background-color: black;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-analyze' width='44' height='44' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M20 11a8.1 8.1 0 0 0 -6.986 -6.918a8.095 8.095 0 0 0 -8.019 3.918' /%3E%3Cpath d='M4 13a8.1 8.1 0 0 0 15 3' /%3E%3Cpath d='M19 16m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0' /%3E%3Cpath d='M5 8m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0' /%3E%3Cpath d='M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0' /%3E%3C/svg%3E");
 }
 
 nav > div:nth-child(2) {
@@ -103,20 +91,20 @@ nav > div:nth-child(2) > a:hover::after {
 nav > div:nth-child(3) {
   height: 100%;
   min-width: 115px;
-  width: calc(6% + 43px);
+  width: calc(6% + 60px);
   justify-content: start;
 }
 
 nav > div:nth-child(3) > button {
-  padding: 8px;
-  width: 100px;
+  padding: 10px;
+  width: 120px;
   font-weight: 500;
   cursor: pointer;
   border-radius: 2px;
   background-color: white;
   color: black;
   border: 2px solid black;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 nav[theme="white"] button {
