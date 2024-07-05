@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-@import url(./media/mobile.css);
 
 * {
   font-family: "Montserrat", sans-serif;
@@ -27,18 +26,29 @@ nav {
   align-items: center;
   justify-content: space-between;
   background-color: var(--cor2);
+  transition-duration: 1s;
 }
 
-nav[theme="black"] {
+[data-contexto="black"] {
   --cor1: white;
   --cor2: black;
-  transition: 0.5s;
+
+  --cor-btn-login1: white;
+  --cor-btn-login2: black;
+
+  --cor-scroll1: black;
+  --cor-scroll2: black;
 }
 
-nav[theme="white"] {
+[data-contexto="white"] {
   --cor1: black;
   --cor2: white;
-  transition: 1s;
+
+  --cor-btn-login1: black;
+  --cor-btn-login2: white;
+
+  --cor-scroll1: rgb(169, 169, 169);
+  --cor-scroll2: white;
 }
 
 nav > div {
@@ -72,6 +82,7 @@ nav > div:nth-child(2) > a {
   text-decoration: none;
   color: var(--cor1);
   position: relative;
+  transition-duration: 1s;
 }
 
 nav > div:nth-child(2) > a::after {
@@ -80,7 +91,8 @@ nav > div:nth-child(2) > a::after {
   width: 0%;
   height: 2px;
   background-color: var(--cor1);
-  transition-duration: 0.5s;
+  transition-duration: 1s;
+  margin-top: 1px;
 }
 
 nav > div:nth-child(2) > a:hover::after {
@@ -105,27 +117,26 @@ nav > div:nth-child(3) > button {
   color: black;
   border: 2px solid black;
   font-size: 17px;
-}
-
-nav[theme="white"] button {
-  background-color: white;
-  color: black;
   transition-duration: 1s;
 }
 
-nav[theme="white"] button:hover {
-  background-color: black;
-  color: white;
-  transition-duration: 0.3s;
+nav > div:nth-child(3) > button:hover {
+  background-color: var(--cor-btn-login1);
+  color: var(--cor-btn-login2);
+  transition-duration: 0.2s;
 }
 
 .container1 {
   width: 100%;
-  min-height: 700px;
-  background-image: url("../imgs/img-bg.jpg");
+  min-height: 600px;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 85%,
+      rgb(0, 0, 0) 100%
+    ),
+    url("../imgs/img-bg.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
   background-color: black;
   display: flex;
   justify-content: center;
@@ -146,7 +157,6 @@ p {
 
 .container1__div__header__subtitulo {
   font-weight: 300;
-  margin-bottom: 20px;
   font-size: 35px;
 }
 .container1__div__header__subtitulo > span {
@@ -160,6 +170,10 @@ p {
 
 .container1__div__header__paragrafo {
   font-size: 25px;
+}
+
+.container1__div__header__paragrafo > span {
+  font-weight: 600;
 }
 
 .container1__div__redesSociais {
@@ -228,15 +242,6 @@ p {
 }
 
 /* -- scrool bar -- */
-[data-contexto="black"] {
-  --cor-scroll1: black;
-  --cor-scroll2: black;
-}
-
-[data-contexto="white"] {
-  --cor-scroll1: rgb(169, 169, 169);
-  --cor-scroll2: white;
-}
 
 ::-webkit-scrollbar {
   width: 9px;

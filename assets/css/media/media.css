@@ -17,6 +17,7 @@
   .container1 {
     margin-top: 9svh;
     height: 91svh;
+    background-size: cover;
   }
 
   .container1__div__header__titulo {
@@ -85,7 +86,7 @@
 /* Computador */
 @media (min-width: 1025px) {
   header {
-    font-size: 18px;
+    font-size: 20px;
     height: 10vh;
   }
 
@@ -95,6 +96,7 @@
 
   .container1 {
     margin-top: 10vh;
+    background-size: contain;
     height: 90vh;
   }
 
