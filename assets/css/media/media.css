@@ -29,6 +29,35 @@
   }
 }
 
+/* Celular deitado */
+@media (min-width: 481px) and (max-width: 767px) {
+  .nav-div-icon,
+  .btn-div-login {
+    display: none;
+  }
+
+  header {
+    height: 10vh;
+  }
+
+  .nav-botoes {
+    width: 100%;
+  }
+
+  .container1 {
+    margin-top: 10vh;
+    height: 90vh;
+  }
+
+  .container1__div__header__titulo {
+    font-size: 40px;
+  }
+
+  .container2 {
+    height: 91vh;
+  }
+}
+
 /* Tablet */
 @media (min-width: 768px) and (max-width: 1024px) {
   header {
