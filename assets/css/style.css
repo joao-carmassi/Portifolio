@@ -41,10 +41,10 @@ nav {
 }
 
 [data-contexto="white"] {
-  --cor1: black;
+  --cor1: #060c2d;
   --cor2: white;
 
-  --cor-btn-login1: black;
+  --cor-btn-login1: #060c2d;
   --cor-btn-login2: white;
 
   --cor-scroll1: rgb(169, 169, 169);
