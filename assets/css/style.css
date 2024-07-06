@@ -242,12 +242,11 @@ p {
 
 .container-maps {
   width: 100%;
-  height: 60vh;
 }
 
 .conatainer-footer {
   width: 100%;
-  height: 250px;
+  height: 235px;
   background-color: var(--cor1);
   color: var(--cor2);
   display: flex;

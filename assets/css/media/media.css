@@ -27,6 +27,11 @@
   .container2 {
     height: 91vh;
   }
+
+  .container-maps {
+    height: 60vh;
+    min-height: 350px;
+  }
 }
 
 /* Celular deitado */
@@ -56,6 +61,12 @@
   .container2 {
     height: 91vh;
   }
+
+  .container-maps {
+    height: 60vh;
+
+    min-height: 350px;
+  }
 }
 
 /* Tablet */
@@ -83,6 +94,11 @@
     height: 93vh;
     min-height: 900px;
   }
+
+  .container-maps {
+    width: 100%;
+    height: 60vh;
+  }
 }
 
 /* Computador */
@@ -108,5 +124,9 @@
 
   .container2 {
     height: 90vh;
+  }
+
+  .container-maps {
+    height: 60vh;
   }
 }
