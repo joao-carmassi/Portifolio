@@ -5,9 +5,9 @@
     display: none;
   }
 
-  header {
+  .header-site {
     font-size: 16px;
-    height: 9svh;
+    height: 9vh;
   }
 
   .nav-botoes {
@@ -15,8 +15,8 @@
   }
 
   .container1 {
-    margin-top: 9svh;
-    height: 91svh;
+    margin-top: 9vh;
+    height: 91vh;
     background-size: cover;
   }
 
@@ -24,8 +24,30 @@
     font-size: 40px;
   }
 
-  .container2 {
-    height: 91vh;
+  .container-projetos {
+    margin: 50px 0;
+  }
+
+  .header-projetos {
+    margin-bottom: 50px;
+  }
+
+  .div-itens-projetos {
+    height: 80vh;
+  }
+
+  .titulo-projetos {
+    margin-bottom: 10px;
+  }
+
+  .span-projetos {
+    width: calc(100% - 80px);
+    grid-template-areas:
+      "img1"
+      "img2"
+      "img3"
+      "img4";
+    gap: 20px;
   }
 
   .container-maps {
@@ -41,7 +63,7 @@
     display: none;
   }
 
-  header {
+  .header-site {
     height: 10vh;
   }
 
@@ -58,10 +80,6 @@
     font-size: 40px;
   }
 
-  .container2 {
-    height: 91vh;
-  }
-
   .container-maps {
     height: 60vh;
 
@@ -71,7 +89,7 @@
 
 /* Tablet */
 @media (min-width: 768px) and (max-width: 1024px) {
-  header {
+  .header-site {
     font-size: 18px;
     height: 7vh;
   }
@@ -90,9 +108,29 @@
     font-size: 45px;
   }
 
-  .container2 {
-    height: 93vh;
-    min-height: 900px;
+  .container-projetos {
+    margin: 70px 0;
+  }
+
+  .header-projetos {
+    margin-bottom: 70px;
+  }
+
+  .div-itens-projetos {
+    height: 30vh;
+    min-height: 350px;
+  }
+
+  .titulo-projetos {
+    margin-bottom: 10px;
+  }
+
+  .span-projetos {
+    width: calc(100% - 100px);
+    grid-template-areas:
+      "img1 img2 img4 img4"
+      "img3 img3 img4 img4";
+    gap: 20px;
   }
 
   .container-maps {
@@ -103,7 +141,7 @@
 
 /* Computador */
 @media (min-width: 1025px) {
-  header {
+  .header-site {
     font-size: 20px;
     height: 10vh;
   }
@@ -122,8 +160,28 @@
     font-size: 45px;
   }
 
-  .container2 {
-    height: 90vh;
+  .container-projetos {
+    margin: 70px 0;
+  }
+
+  .header-projetos {
+    margin-bottom: 70px;
+  }
+
+  .div-itens-projetos {
+    height: 80vh;
+  }
+
+  .titulo-projetos {
+    margin-bottom: 10px;
+  }
+
+  .span-projetos {
+    width: calc(100% - 100px);
+    grid-template-areas:
+      "img1 img2 img4 img4"
+      "img3 img3 img4 img4";
+    gap: 20px;
   }
 
   .container-maps {
