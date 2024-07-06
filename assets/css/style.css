@@ -176,7 +176,7 @@ p {
   font-weight: 600;
 }
 
-.container1__div__redesSociais {
+.container__redesSociais {
   margin-top: 25px;
   display: flex;
   justify-content: center;
@@ -185,7 +185,7 @@ p {
   height: 60px;
 }
 
-.container1__div__redesSociais > a {
+.container__redesSociais > a {
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -201,36 +201,36 @@ p {
   transition: 0.2s;
 }
 
-.container1__div__redesSociais > a:hover {
+.container__redesSociais > a:hover {
   transform: scale(1.15);
   transition: 0.2s;
 }
 
-.container1__div__redesSociais__linkedin:hover {
+.container__redesSociais__linkedin:hover {
   border: 1px solid rgba(6, 146, 174, 1);
   background: rgba(6, 146, 174, 0.1);
   transition: 0.2s;
 }
 
-.container1__div__redesSociais__instagram:hover {
+.container__redesSociais__instagram:hover {
   border: 1px solid rgba(164, 2, 94, 1);
   background: rgba(164, 2, 94, 0.1);
   transition: 0.2s;
 }
 
-.container1__div__redesSociais__github:hover {
+.container__redesSociais__github:hover {
   border: 1px solid rgba(6, 42, 174, 1);
   background: rgba(6, 42, 174, 0.1);
   transition: 0.2s;
 }
 
-.container1__div__redesSociais > a:hover::before {
+.container__redesSociais > a:hover::before {
   height: 100%;
   width: 100%;
   transition-duration: 0.3s;
 }
 
-.container1__div__redesSociais > a > img {
+.container__redesSociais > a > img {
   width: 60%;
   filter: drop-shadow(1px 1px 2px black);
   transition: 0.2s;
@@ -238,7 +238,43 @@ p {
 
 .container2 {
   background-color: white;
-  min-height: 700px;
+}
+
+.container-maps {
+  width: 100%;
+  height: 60vh;
+}
+
+.conatainer-footer {
+  width: 100%;
+  height: 250px;
+  background-color: var(--cor1);
+  color: var(--cor2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.img-footer {
+  height: 50px;
+  border-radius: 50%;
+}
+
+.redes-sociais-footer {
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+}
+
+.redes-sociais-footer > a {
+  width: 35px;
+  height: 35px;
+}
+
+.conteudo-footer1 > span {
+  font-weight: 600;
 }
 
 /* -- scrool bar -- */
