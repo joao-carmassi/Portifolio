@@ -1,34 +1,12 @@
+// IMPORTS -----
+import { Projeto } from "./modules/cardProjetos.js";
+
 // DOOMs -----
 const html = document.querySelector("html");
 const imgsProjetos = document.querySelectorAll(".img-projetos");
 
 // VARS -----
-const projetos = [
-  (projeto = {
-    nome: "Alura Book",
-    imagem: "Alura-Book",
-    descricao: "Página de busca dos livros.",
-    link: "https://joao-carmassi.github.io/Alura-Books/pagina%201/index.html",
-  }),
-  (projeto = {
-    nome: "Calmaria Spa",
-    imagem: "Calmaria-Spa",
-    descricao: "Site de um Spa",
-    link: "https://joao-carmassi.github.io/Calmaria-Spa/",
-  }),
-  (projeto = {
-    nome: "D&D",
-    imagem: "RPG",
-    descricao: "Site que simula combate de personagens de RPG.",
-    link: "https://joao-carmassi.github.io/Cartas-Personagens/",
-  }),
-  (projeto = {
-    nome: "Lista de Compras",
-    imagem: "Lista-de-Compras",
-    descricao: "Página de uma lista de compras.",
-    link: "https://joao-carmassi.github.io/Lista-de-compras/",
-  }),
-];
+let projetos = [];
 
 // FUNCOES -----
 trocaCorPagina();
@@ -44,6 +22,35 @@ function trocaCorPagina() {
     html.setAttribute("data-contexto", "black");
     iconNav.setAttribute("src", "./assets/imgs/icons/icon-branco.png");
   }
+}
+
+juntarProjetos(
+  "Alura Book",
+  "Alura-Book",
+  "Página de busca dos livros.",
+  "https://joao-carmassi.github.io/Alura-Books/pagina%201/index.html"
+);
+juntarProjetos(
+  "Calmaria Spa",
+  "Calmaria-Spa",
+  "Site de um informativo de um Spa.",
+  "https://joao-carmassi.github.io/Calmaria-Spa/"
+);
+juntarProjetos(
+  "D&D",
+  "RPG",
+  "Site que simula combate de personagens de RPG.",
+  "https://joao-carmassi.github.io/Cartas-Personagens/"
+);
+juntarProjetos(
+  "Lista de Compras&D",
+  "Lista-de-Compras",
+  "Página de uma lista de compras.",
+  "https://joao-carmassi.github.io/Lista-de-compras/"
+);
+
+function juntarProjetos(nome, imagem, descricao, link) {
+  projetos.push(new Projeto(nome, imagem, descricao, link));
 }
 
 adicionaDadosProjetos();

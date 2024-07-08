@@ -43,10 +43,10 @@
   .span-projetos {
     width: calc(100% - 80px);
     grid-template-areas:
-      "img1"
-      "img2"
+      "img4"
       "img3"
-      "img4";
+      "img2"
+      "img1";
     gap: 20px;
   }
 
