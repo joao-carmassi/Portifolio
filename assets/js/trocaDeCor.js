@@ -2,6 +2,7 @@
 const html = document.querySelector("html");
 
 // FUNCOES -----
+trocaCorPagina();
 window.addEventListener("scroll", trocaCorPagina);
 
 function trocaCorPagina() {
@@ -15,4 +16,3 @@ function trocaCorPagina() {
     iconNav.setAttribute("src", "./assets/imgs/icons/icon-branco.png");
   }
 }
-trocaCorPagina();
