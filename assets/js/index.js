@@ -28,7 +28,7 @@ const projetos = [
     link: "https://joao-carmassi.github.io/Lista-de-compras/",
   }),
 ];
-// "Alura-Book", "Calmaria-Spa", "RPG", "Lista-de-Compras";
+//TODO: "Alura-Book", "Calmaria-Spa", "RPG", "Lista-de-Compras";
 
 // FUNCOES -----
 adicionaDadosProjetos();
