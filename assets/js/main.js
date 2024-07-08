@@ -39,10 +39,10 @@ function trocaCorPagina() {
 
   if (window.scrollY > 0) {
     html.setAttribute("data-contexto", "white");
-    iconNav.setAttribute("src", "assets/imgs/icons/icon-preto.png");
+    iconNav.setAttribute("src", "./assets/imgs/icons/icon-preto.png");
   } else {
     html.setAttribute("data-contexto", "black");
-    iconNav.setAttribute("src", "assets/imgs/icons/icon-branco.png");
+    iconNav.setAttribute("src", "./assets/imgs/icons/icon-branco.png");
   }
 }
 
@@ -50,7 +50,7 @@ adicionaDadosProjetos();
 function adicionaDadosProjetos() {
   let index = 0;
   imgsProjetos.forEach((element) => {
-    element.style.backgroundImage = `url('assets/imgs/projetos/${projetos[index].imagem}.png')`;
+    element.style.backgroundImage = `url('./assets/imgs/projetos/${projetos[index].imagem}.png')`;
     element.querySelector("h2").textContent = projetos[index].nome;
     element.querySelector("p").textContent = projetos[index].descricao;
     element.setAttribute("href", `${projetos[index].link}`);
