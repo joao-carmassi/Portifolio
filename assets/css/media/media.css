@@ -33,7 +33,7 @@
   }
 
   .div-itens-projetos {
-    height: 80vh;
+    height: fit-content;
   }
 
   .titulo-projetos {
@@ -48,6 +48,11 @@
       "img3"
       "img4";
     gap: 20px;
+  }
+
+  .img-projetos {
+    width: 100%;
+    aspect-ratio: 16/9;
   }
 
   .container-maps {
@@ -80,6 +85,14 @@
     font-size: 40px;
   }
 
+  .span-projetos {
+    width: calc(100% - 100px);
+    grid-template-areas:
+      "img1 img1 img2 img2"
+      "img3 img3 img4 img4";
+    gap: 20px;
+  }
+
   .container-maps {
     height: 60vh;
 
@@ -109,11 +122,11 @@
   }
 
   .container-projetos {
-    margin: 70px 0;
+    margin: 60px 0;
   }
 
   .header-projetos {
-    margin-bottom: 70px;
+    margin-bottom: 60px;
   }
 
   .div-itens-projetos {
@@ -128,7 +141,7 @@
   .span-projetos {
     width: calc(100% - 100px);
     grid-template-areas:
-      "img1 img2 img4 img4"
+      "img1 img1 img2 img2"
       "img3 img3 img4 img4";
     gap: 20px;
   }
@@ -186,5 +199,17 @@
 
   .container-maps {
     height: 60vh;
+  }
+
+  .img-projetos:hover {
+    border-radius: 10px;
+    transition-duration: 0.5s;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.4);
+    transform: scale(1.02);
+  }
+
+  .img-projetos:hover .img-projetos-hover {
+    bottom: 0;
+    transition-duration: 1s;
   }
 }
