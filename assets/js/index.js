@@ -1,4 +1,5 @@
-// DOOMS -----
+// DOOMs -----
+const html = document.querySelector("html");
 const imgsProjetos = document.querySelectorAll(".img-projetos");
 
 // VARS -----
@@ -28,9 +29,23 @@ const projetos = [
     link: "https://joao-carmassi.github.io/Lista-de-compras/",
   }),
 ];
-//TODO: "Alura-Book", "Calmaria-Spa", "RPG", "Lista-de-Compras";
 
 // FUNCOES -----
+trocaCorPagina();
+window.addEventListener("scroll", trocaCorPagina);
+
+function trocaCorPagina() {
+  const iconNav = document.getElementById("iconNav");
+
+  if (window.scrollY > 0) {
+    html.setAttribute("data-contexto", "white");
+    iconNav.setAttribute("src", "./assets/imgs/icons/icon-preto.png");
+  } else {
+    html.setAttribute("data-contexto", "black");
+    iconNav.setAttribute("src", "./assets/imgs/icons/icon-branco.png");
+  }
+}
+
 adicionaDadosProjetos();
 function adicionaDadosProjetos() {
   let index = 0;
