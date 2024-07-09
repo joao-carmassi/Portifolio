@@ -2,25 +2,25 @@
   "projetos": [
     {
       "nome": "Alura Book",
-      "slug": "Alura-Book",
+      "imagem": "Alura-Book",
       "descricao": "Página de busca dos livros.",
       "url": "https://joao-carmassi.github.io/Alura-Books/pagina%201/index.html"
     },
     {
       "nome": "Calmaria Spa",
-      "slug": "Calmaria-Spa",
+      "imagem": "Calmaria-Spa",
       "descricao": "Site de um informativo de um Spa.",
       "url": "https://joao-carmassi.github.io/Calmaria-Spa/"
     },
     {
       "nome": "D&D",
-      "slug": "RPG",
+      "imagem": "RPG",
       "descricao": "Site que simula combate de personagens de RPG.",
       "url": "https://joao-carmassi.github.io/Cartas-Personagens/"
     },
     {
       "nome": "Lista de Compras&D",
-      "slug": "Lista-de-Compras",
+      "imagem": "Lista-de-Compras",
       "descricao": "Página de uma lista de compras.",
       "url": "https://joao-carmassi.github.io/Lista-de-compras/"
     }
