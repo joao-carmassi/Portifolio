@@ -31,7 +31,7 @@ function adicionaDadosProjetos() {
     element.style.backgroundImage = `url('./assets/imgs/projetos/${projetos[index].imagem}.png')`;
     element.querySelector("h2").textContent = projetos[index].nome;
     element.querySelector("p").textContent = projetos[index].descricao;
-    element.setAttribute("href", `${projetos[index].link}`);
+    element.setAttribute("href", `${projetos[index].url}`);
     index++;
   });
 }
