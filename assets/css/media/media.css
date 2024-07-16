@@ -210,6 +210,6 @@
 
   .img-projetos:hover .img-projetos-hover {
     bottom: 0;
-    transition-duration: 1s;
+    transition-duration: 0.75s;
   }
 }
