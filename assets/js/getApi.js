@@ -1,4 +1,4 @@
-const ApiLink = "https://restful-api-portifolio.onrender.com/data/mensagens";
+const ApiLink = "https://portifolio-api-g570.onrender.com/data/mensagens";
 
 async function getApi() {
   try {
