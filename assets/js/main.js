@@ -1,5 +1,6 @@
 // IMPORTS -----
-import { getApi } from "./getApi.js";
+import { getApi } from "./getProjetos.js";
+import { api } from "./getApi.js";
 
 // DOOMs -----
 const html = document.querySelector("html");
@@ -35,3 +36,18 @@ function adicionaDadosProjetos() {
     index++;
   });
 }
+
+async function exibeDadosDaApiNaTela() {
+  let mensagens = await api.getApi();
+  console.log(mensagens);
+
+  const ulAPI = document.querySelector(".ul-API");
+  mensagens.forEach((mensagem) => {
+    ulAPI.innerHTML += `
+      <li class="li-API">
+        <h2>${mensagem.nome}</h2>
+        <p>${mensagem.mensagem}</p>
+      </li>`;
+  });
+}
+exibeDadosDaApiNaTela();
