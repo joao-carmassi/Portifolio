@@ -5,6 +5,9 @@ import { api } from "./getApi.js";
 // DOOMs -----
 const html = document.querySelector("html");
 const imgsProjetos = document.querySelectorAll(".img-projetos");
+const ulAPI = document.querySelector(".ul-API");
+const inputNome = document.getElementById("input-nome");
+const btnEnviar = document.getElementById("btn-enviar");
 
 // VARS -----
 let projetos = await getApi();
@@ -41,13 +44,22 @@ async function exibeDadosDaApiNaTela() {
   let mensagens = await api.getApi();
   console.log(mensagens);
 
-  const ulAPI = document.querySelector(".ul-API");
   mensagens.forEach((mensagem) => {
-    ulAPI.innerHTML += `
+    ulAPI.insertAdjacentHTML(
+      "afterbegin",
+      `
       <li class="li-API">
         <h2>${mensagem.nome}</h2>
         <p>${mensagem.mensagem}</p>
-      </li>`;
+      </li>`
+    );
   });
 }
 exibeDadosDaApiNaTela();
+
+btnEnviar.addEventListener("click", () => {
+  if (inputNome.value != "") {
+    api.postApi(inputNome.value, "Passou por aqui");
+    inputNome.value = "";
+  }
+});

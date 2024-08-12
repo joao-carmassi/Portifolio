@@ -351,9 +351,13 @@ nav > div:nth-child(3) {
 .span-API {
   background-color: #13111b;
   width: 60%;
-  height: 60vh;
+  height: 75vh;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.ul-API {
   overflow-y: auto;
 }
 
@@ -362,6 +366,20 @@ nav > div:nth-child(3) {
   color: white;
   border: 1px solid gray;
   padding: 20px 0;
+}
+
+.apiPostInput {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.apiPostInput input {
+  width: 50%;
+}
+
+.apiPostInput button {
+  width: 80px;
 }
 
 .container-maps {

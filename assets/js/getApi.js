@@ -1,4 +1,4 @@
-const ApiLink = "http://localhost:3000/mensagens";
+const ApiLink = "https://restful-api-portifolio.onrender.com/data/mensagens";
 
 async function getApi() {
   try {
