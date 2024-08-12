@@ -1,0 +1,20 @@
+{
+  "name": "portifolio",
+  "version": "1.0.0",
+  "description": "![image](https://github.com/joao-carmassi/Portifolio/assets/90992816/c2d2b272-9d37-4a0e-b51e-b8edd3a06155)\r <hr>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "1.0.0-beta.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "eslint": "^9.9.0",
+    "globals": "^15.9.0"
+  }
+}

@@ -69,7 +69,8 @@
   }
 
   .header-site {
-    height: 10vh;
+    font-size: 16px;
+    height: 9vh;
   }
 
   .nav-botoes {
@@ -77,25 +78,48 @@
   }
 
   .container1 {
-    margin-top: 10vh;
-    height: 90vh;
+    margin-top: 9vh;
+    height: 91vh;
+    background-size: cover;
   }
 
   .container1__div__header__titulo {
     font-size: 40px;
   }
 
+  .container-projetos {
+    margin: 50px 0;
+  }
+
+  .header-projetos {
+    margin-bottom: 50px;
+  }
+
+  .div-itens-projetos {
+    height: fit-content;
+  }
+
+  .titulo-projetos {
+    margin-bottom: 10px;
+  }
+
   .span-projetos {
-    width: calc(100% - 100px);
+    width: calc(100% - 80px);
     grid-template-areas:
-      "img1 img1 img2 img2"
-      "img3 img3 img4 img4";
+      "img4"
+      "img3"
+      "img2"
+      "img1";
     gap: 20px;
+  }
+
+  .img-projetos {
+    width: 100%;
+    aspect-ratio: 16/9;
   }
 
   .container-maps {
     height: 60vh;
-
     min-height: 350px;
   }
 }

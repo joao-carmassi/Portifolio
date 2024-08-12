@@ -1,0 +1,35 @@
+/* -- scrool bar -- */
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--cor-scroll1);
+  border: 0px none var(--cor-scroll1);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cor-scroll1);
+}
+::-webkit-scrollbar-thumb:active {
+  background: var(--cor-scroll1);
+}
+::-webkit-scrollbar-track {
+  background: var(--cor-scroll2);
+  border: 0px none var(--cor-scroll1);
+  border-radius: 0px;
+}
+::-webkit-scrollbar-track:hover {
+  background: var(--cor-scroll2);
+}
+::-webkit-scrollbar-track:active {
+  background: var(--cor-scroll2);
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
