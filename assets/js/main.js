@@ -52,6 +52,8 @@ async function exibeDadosDaApiNaTela() {
 exibeDadosDaApiNaTela();
 
 function adicionaHTML(nome, mensagem, dia) {
+  const localNome = localStorage.getItem("nome");
+  nome = nome == localNome ? nome + " (você)" : nome;
   ulAPI.insertAdjacentHTML(
     "afterbegin",
     `
@@ -67,6 +69,8 @@ btnEnviar.addEventListener("click", () => {
   const mensagem = fraseAleatoria();
   if (inputNome.value != "") {
     const dia = new Date().toLocaleDateString();
+    let nome = inputNome.value;
+    localStorage.setItem("nome", nome);
     api.postApi(inputNome.value, mensagem, dia);
     adicionaHTML(inputNome.value, mensagem, dia);
     inputNome.value = "";
