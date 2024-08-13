@@ -350,7 +350,7 @@ nav > div:nth-child(3) {
 }
 
 .apiPostInput {
-  width: 56%;
+  width: 40%;
   position: relative;
   display: flex;
   justify-content: center;
@@ -359,9 +359,9 @@ nav > div:nth-child(3) {
 
 .input-nome-API {
   position: absolute;
-  width: 100%;
+  width: calc(100% - 105px);
+  padding: 0 105px 0 10px;
   height: 45px;
-  padding: 0 10px;
   border: 1px solid var(--cor1);
   border-radius: 4px;
   font-size: 16px;
@@ -394,7 +394,25 @@ nav > div:nth-child(3) {
   font-size: 16px;
   position: absolute;
   z-index: 1;
-  right: -5px;
+  right: 0;
+  background-color: var(--cor1);
+  color: var(--cor3);
+  border: none;
+}
+
+.btn-enviar-API:hover {
+  transform: translateY(-2px);
+  -webkit-box-shadow: 2px 2px 3px 0px rgb(86, 86, 86);
+  -moz-box-shadow: 2px 2px 3px 0px rgb(86, 86, 86);
+  box-shadow: 2px 2px 3px 0px rgb(86, 86, 86);
+}
+
+.btn-enviar-API:active {
+  transform: translateY(1px);
+  transform-origin: 0.01s;
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
 }
 
 .span-API {
