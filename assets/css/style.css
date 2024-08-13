@@ -74,7 +74,6 @@ nav > div:nth-child(1) {
 
 nav > div:nth-child(1) > img {
   border-radius: 50%;
-  padding: 1px;
   width: 55px;
   height: 55px;
   background-position: center;
@@ -344,8 +343,61 @@ nav > div:nth-child(3) {
   grid-area: img4;
 }
 
+.modelo-div-API {
+  flex-direction: column;
+  gap: 50px;
+}
+
 .header-API {
   padding-top: 5px;
+}
+
+.apiPostInput {
+  width: 60%;
+  gap: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-nome-API {
+  border: none;
+  background-color: rgb(221, 221, 221);
+  padding: 5px 10px;
+  border-radius: 8px;
+  height: 25px;
+  width: 350px;
+  position: relative;
+  box-shadow: inset 5px 5px 10px #b5b5b5, inset -5px -5px 10px #ffffff;
+  font-size: 18px;
+}
+
+.span-input-API {
+  width: fit-content;
+  position: relative;
+}
+
+.span-input-API::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 95%;
+  margin: 0 2.5%;
+  bottom: 5.1px;
+  height: 1px;
+  background-color: black;
+  z-index: 99;
+}
+
+.input-nome-API:focus {
+  outline: none;
+}
+
+.btn-enviar-API {
+  width: 90px;
+  height: 40px;
+  padding: 0;
+  font-size: 16px;
 }
 
 .span-API {
@@ -357,6 +409,40 @@ nav > div:nth-child(3) {
   justify-content: start;
   box-shadow: 0 0 55px 0 rgba(31, 38, 135, 0.6);
   border-radius: 16px;
+}
+
+.cardHeader-API {
+  display: flex;
+  align-items: center;
+  background-color: #2d2941;
+  height: 9%;
+  min-height: 35px;
+  -webkit-border-top-left-radius: 16px;
+  -webkit-border-top-right-radius: 16px;
+  -moz-border-radius-topleft: 16px;
+  -moz-border-radius-topright: 16px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.cardHeader-API > span {
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  margin-left: 15px;
+}
+
+.cardHeader-API > span:nth-child(1) {
+  margin-left: 20px;
+  background-color: #ff5f5a;
+}
+
+.cardHeader-API > span:nth-child(2) {
+  background-color: #ffbe2e;
+}
+
+.cardHeader-API > span:nth-child(3) {
+  background-color: #2aca44;
 }
 
 .ul-API {
@@ -375,20 +461,6 @@ nav > div:nth-child(3) {
   font-weight: 600;
   font-size: 18px;
   text-transform: capitalize;
-}
-
-.apiPostInput {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.apiPostInput input {
-  width: 50%;
-}
-
-.apiPostInput button {
-  width: 80px;
 }
 
 .container-maps {

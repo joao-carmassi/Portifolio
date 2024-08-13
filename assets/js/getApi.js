@@ -1,4 +1,4 @@
-const ApiLink = "https://portifolio-api-g570.onrender.com/data/mensagens";
+const ApiLink = "https://joao-vitor-carmassi.loca.lt/mensagens";
 
 async function getApi() {
   try {
