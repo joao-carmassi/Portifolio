@@ -55,6 +55,28 @@
     aspect-ratio: 16/9;
   }
 
+  .apiPostInput {
+    width: 70%;
+  }
+
+  .input-nome-API {
+    width: 100%;
+    height: 45px;
+    padding: 0 8px;
+  }
+
+  .btn-enviar-API {
+    width: 80px;
+    height: 35px;
+    z-index: 1;
+    right: -3px;
+  }
+
+  .span-API {
+    width: 80%;
+    height: 55vh;
+  }
+
   .container-maps {
     height: 60vh;
     min-height: 350px;
@@ -69,7 +91,7 @@
   }
 
   .header-site {
-    font-size: 16px;
+    font-size: 20px;
     height: 9vh;
   }
 
@@ -104,18 +126,39 @@
   }
 
   .span-projetos {
-    width: calc(100% - 80px);
+    width: calc(100% - 100px);
     grid-template-areas:
-      "img4"
-      "img3"
-      "img2"
-      "img1";
+      "img1 img1 img2 img2"
+      "img3 img3 img4 img4";
     gap: 20px;
   }
 
   .img-projetos {
     width: 100%;
     aspect-ratio: 16/9;
+  }
+
+  .apiPostInput {
+    width: 70%;
+  }
+
+  .input-nome-API {
+    width: 100%;
+    height: 45px;
+    padding: 0 8px;
+  }
+
+  .btn-enviar-API {
+    width: 80px;
+    height: 35px;
+    z-index: 1;
+    right: -3px;
+  }
+
+  .span-API {
+    width: 80%;
+    height: 55vh;
+    min-height: 400px;
   }
 
   .container-maps {
@@ -219,6 +262,10 @@
       "img1 img2 img4 img4"
       "img3 img3 img4 img4";
     gap: 20px;
+  }
+
+  .header-API {
+    margin-bottom: 60px;
   }
 
   .container-maps {
