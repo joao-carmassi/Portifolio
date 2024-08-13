@@ -10,14 +10,14 @@ async function getApi() {
   }
 }
 
-async function postApi(nome, mensagem) {
+async function postApi(nome, mensagem, dia) {
   try {
     const response = await fetch(ApiLink, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ nome: nome, mensagem: mensagem }),
+      body: JSON.stringify({ nome: nome, mensagem: mensagem, dia: dia }),
     });
     const data = await response.json();
     return data;

@@ -1,6 +1,7 @@
 // IMPORTS -----
 import { getApi } from "./getProjetos.js";
 import { api } from "./getApi.js";
+import { fraseAleatoria } from "./escolheFrase.js";
 
 // DOOMs -----
 const html = document.querySelector("html");
@@ -42,24 +43,32 @@ function adicionaDadosProjetos() {
 
 async function exibeDadosDaApiNaTela() {
   let mensagens = await api.getApi();
-  console.log(mensagens);
 
   mensagens.forEach((mensagem) => {
-    ulAPI.insertAdjacentHTML(
-      "afterbegin",
-      `
-      <li class="li-API">
-        <h2>${mensagem.nome}</h2>
-        <p>${mensagem.mensagem}</p>
-      </li>`
-    );
-  });
+    adicionaHTML(mensagem.nome, mensagem.mensagem, mensagem.dia);
+  }); // Fechando o forEach corretamente
 }
+
 exibeDadosDaApiNaTela();
 
+function adicionaHTML(nome, mensagem, dia) {
+  ulAPI.insertAdjacentHTML(
+    "afterbegin",
+    `
+      <li class="li-API">
+
+        <h2>${nome}</h2>
+        <p>${mensagem} ${dia}</p>
+      </li>`
+  );
+}
+
 btnEnviar.addEventListener("click", () => {
+  const mensagem = fraseAleatoria();
   if (inputNome.value != "") {
-    api.postApi(inputNome.value, "Passou por aqui");
+    const dia = new Date().toLocaleDateString();
+    api.postApi(inputNome.value, mensagem, dia);
+    adicionaHTML(inputNome.value, mensagem, dia);
     inputNome.value = "";
   }
 });

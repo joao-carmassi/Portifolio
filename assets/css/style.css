@@ -355,6 +355,8 @@ nav > div:nth-child(3) {
   display: flex;
   flex-direction: column;
   justify-content: start;
+  box-shadow: 0 0 55px 0 rgba(31, 38, 135, 0.6);
+  border-radius: 16px;
 }
 
 .ul-API {
@@ -364,8 +366,15 @@ nav > div:nth-child(3) {
 .li-API {
   text-align: center;
   color: white;
-  border: 1px solid gray;
+  border-bottom: 1px solid gray;
   padding: 20px 0;
+}
+
+.li-API > h2 {
+  margin-bottom: 7px;
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: capitalize;
 }
 
 .apiPostInput {
