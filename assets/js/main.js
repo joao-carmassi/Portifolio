@@ -13,6 +13,7 @@ const errorApiP = document.querySelector(".error-API-p");
 
 // VARS -----
 let projetos = await getApi();
+let mensagens;
 const maxLengthNome = 30;
 
 // FUNCOES -----
@@ -44,19 +45,18 @@ function adicionaDadosProjetos() {
 }
 
 async function exibeDadosDaApiNaTela() {
-  let mensagens = await api.getApi();
-
+  mensagens = await api.getApi();
   mensagens.forEach((mensagem) => {
-    adicionaHTML(mensagem.nome, mensagem.mensagem, mensagem.dia);
+    adicionaHTML(mensagem.nome, mensagem.mensagem, mensagem.dia, mensagem.id);
   }); // Fechando o forEach corretamente
 }
 
 exibeDadosDaApiNaTela();
 
-function adicionaHTML(nome, mensagem, dia) {
-  const localNome = localStorage.getItem("nome");
+function adicionaHTML(nome, mensagem, dia, id) {
+  const localId = localStorage.getItem("id");
 
-  nome = checaSeOUsuarioJaColocouSeuNome(nome, localNome);
+  nome = checaSeOUsuarioJaColocouSeuNome(nome, localId, id);
 
   ulAPI.insertAdjacentHTML(
     "afterbegin",
@@ -96,8 +96,8 @@ inputNome.addEventListener("keypress", (e) => {
 
 inputNome.addEventListener("input", checaCaracteresFaltado);
 
-function checaSeOUsuarioJaColocouSeuNome(nome, localNome) {
-  if (nome == localNome) {
+function checaSeOUsuarioJaColocouSeuNome(nome, localId, id) {
+  if (id == localId) {
     nome = nome + " (você)";
     removeInputNome();
   } else {
@@ -131,10 +131,16 @@ function enviaAPI() {
 
   if (nome != "" && validarNome(nome)) {
     const dia = new Date().toLocaleDateString();
-    localStorage.setItem("nome", nome);
-    api.postApi(nome, mensagem, dia);
-    adicionaHTML(nome, mensagem, dia);
+    api.postApi(nome, mensagem, dia, geraID());
+    adicionaHTML(nome, mensagem, dia, id);
     inputNome.value = "";
   }
   checaCaracteresFaltado();
+}
+
+function geraID() {
+  const id = mensagens.length;
+  localStorage.setItem("id", id);
+  console.log(id);
+  return id;
 }
