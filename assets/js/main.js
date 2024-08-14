@@ -9,9 +9,11 @@ const imgsProjetos = document.querySelectorAll(".img-projetos");
 const ulAPI = document.querySelector(".ul-API");
 const inputNome = document.getElementById("input-nome");
 const btnEnviar = document.getElementById("btn-enviar");
+const errorApiP = document.querySelector(".error-API-p");
 
 // VARS -----
 let projetos = await getApi();
+const maxLengthNome = 30;
 
 // FUNCOES -----
 trocaCorPagina();
@@ -53,7 +55,9 @@ exibeDadosDaApiNaTela();
 
 function adicionaHTML(nome, mensagem, dia) {
   const localNome = localStorage.getItem("nome");
-  nome = nome == localNome ? nome + " (você)" : nome;
+
+  nome = checaSeOUsuarioJaColocouSeuNome(nome, localNome);
+
   ulAPI.insertAdjacentHTML(
     "afterbegin",
     `
@@ -75,23 +79,46 @@ inputNome.addEventListener("keypress", (e) => {
 });
 inputNome.focus();
 
+inputNome.addEventListener("input", checaCaracteresFaltado);
+
+function checaSeOUsuarioJaColocouSeuNome(nome, localNome) {
+  if (nome == localNome) {
+    nome = nome + " (você)";
+    removeInputNome();
+  } else {
+    nome = nome;
+  }
+  return nome;
+}
+
+function removeInputNome() {
+  document.querySelector(".apiPostInput").classList.add("animacaoFechado");
+  document.querySelector(".error-div-API").classList.add("animacaoFechado");
+
+  setTimeout(() => {
+    document.querySelector(".apiPostInput").remove();
+    document.querySelector(".error-div-API").remove();
+  }, 2000);
+}
+
+function checaCaracteresFaltado() {
+  let caracteresFaltando = maxLengthNome - inputNome.value.length;
+  errorApiP.textContent = caracteresFaltando;
+  if (caracteresFaltando < 0) {
+    errorApiP.style.color = "red";
+  } else {
+    errorApiP.style.color = "gray";
+  }
+}
+checaCaracteresFaltado();
+
 function enviaAPI() {
   const mensagem = fraseAleatoria();
 
   function validarNome(nome) {
-    const maxLength = 30;
-    const regex = /^[a-zA-ZÀ-ÿ ]+$/;
-
-    if (nome.length > maxLength) {
-      alert(`O nome não pode ter mais de ${maxLength} caracteres.`);
+    if (nome.length > maxLengthNome) {
       return false;
     }
-
-    if (!regex.test(nome)) {
-      alert("O nome contém caracteres inválidos.");
-      return false;
-    }
-
     return true;
   }
 
@@ -104,4 +131,5 @@ function enviaAPI() {
     adicionaHTML(nome, mensagem, dia);
     inputNome.value = "";
   }
+  checaCaracteresFaltado();
 }
