@@ -67,12 +67,31 @@ function adicionaHTML(nome, mensagem, dia) {
 
 btnEnviar.addEventListener("click", () => {
   const mensagem = fraseAleatoria();
-  if (inputNome.value != "") {
+
+  function validarNome(nome) {
+    const maxLength = 30;
+    const regex = /^[a-zA-ZÀ-ÿ ]+$/;
+
+    if (nome.length > maxLength) {
+      alert(`O nome não pode ter mais de ${maxLength} caracteres.`);
+      return false;
+    }
+
+    if (!regex.test(nome)) {
+      alert("O nome contém caracteres inválidos.");
+      return false;
+    }
+
+    return true;
+  }
+
+  let nome = inputNome.value;
+
+  if (nome != "" && validarNome(nome)) {
     const dia = new Date().toLocaleDateString();
-    let nome = inputNome.value;
     localStorage.setItem("nome", nome);
-    api.postApi(inputNome.value, mensagem, dia);
-    adicionaHTML(inputNome.value, mensagem, dia);
+    api.postApi(nome, mensagem, dia);
+    adicionaHTML(nome, mensagem, dia);
     inputNome.value = "";
   }
 });
