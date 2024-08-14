@@ -66,6 +66,16 @@ function adicionaHTML(nome, mensagem, dia) {
 }
 
 btnEnviar.addEventListener("click", () => {
+  enviaAPI();
+});
+inputNome.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    enviaAPI();
+  }
+});
+inputNome.focus();
+
+function enviaAPI() {
   const mensagem = fraseAleatoria();
 
   function validarNome(nome) {
@@ -94,4 +104,4 @@ btnEnviar.addEventListener("click", () => {
     adicionaHTML(nome, mensagem, dia);
     inputNome.value = "";
   }
-});
+}

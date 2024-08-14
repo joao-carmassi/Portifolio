@@ -1,4 +1,4 @@
-const ApiLink = "https://joao-vitor-carmassi.loca.lt/data/mensagens";
+const ApiLink = "https://pretty-ways-vanish.loca.lt/mensagens";
 
 async function getApi() {
   try {
