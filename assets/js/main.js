@@ -119,6 +119,7 @@ checaCaracteresFaltado();
 
 function enviaAPI() {
   const mensagem = fraseAleatoria();
+  let nome = inputNome.value;
 
   function validarNome(nome) {
     if (nome.length > maxLengthNome) {
@@ -127,11 +128,11 @@ function enviaAPI() {
     return true;
   }
 
-  let nome = inputNome.value;
-
   if (nome != "" && validarNome(nome)) {
     const dia = new Date().toLocaleDateString();
-    api.postApi(nome, mensagem, dia, geraID());
+    const id = geraID();
+    localStorage.setItem("id", id);
+    api.postApi(nome, mensagem, dia, id);
     adicionaHTML(nome, mensagem, dia, id);
     inputNome.value = "";
   }
@@ -139,8 +140,12 @@ function enviaAPI() {
 }
 
 function geraID() {
-  const id = mensagens.length;
-  localStorage.setItem("id", id);
-  console.log(id);
+  // Gera numero e letras aleatorias
+  const caracteres =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let id = "";
+  for (let i = 0; i < 10; i++) {
+    id += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+  }
   return id;
 }
