@@ -69,15 +69,30 @@ function adicionaHTML(nome, mensagem, dia) {
   );
 }
 
+function removeInputNome() {
+  const inputElement = document.querySelector(".apiPostInput");
+  const errorDiv = document.querySelector(".error-div-API");
+
+  if (inputElement) {
+    inputElement.style.display = "none";
+    inputElement.remove();
+  }
+
+  if (errorDiv) {
+    errorDiv.style.display = "none";
+    errorDiv.remove();
+  }
+}
+
 btnEnviar.addEventListener("click", () => {
   enviaAPI();
 });
 inputNome.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     enviaAPI();
+    inputNome.focus();
   }
 });
-inputNome.focus();
 
 inputNome.addEventListener("input", checaCaracteresFaltado);
 
@@ -89,16 +104,6 @@ function checaSeOUsuarioJaColocouSeuNome(nome, localNome) {
     nome = nome;
   }
   return nome;
-}
-
-function removeInputNome() {
-  document.querySelector(".apiPostInput").classList.add("animacaoFechado");
-  document.querySelector(".error-div-API").classList.add("animacaoFechado");
-
-  setTimeout(() => {
-    document.querySelector(".apiPostInput").remove();
-    document.querySelector(".error-div-API").remove();
-  }, 2000);
 }
 
 function checaCaracteresFaltado() {
