@@ -4,11 +4,11 @@ async function getApi() {
   try {
     const response = await fetch(ApiLink, {
       headers: {
-      "ngrok-skip-browser-warning": "true",
-    },
+        "ngrok-skip-browser-warning": "true",
+      },
     });
     const data = await response.json();
-    return data;
+    return data.mensagens;
   } catch (error) {
     console.error("Erro ao obter mensagens:", error);
   }
