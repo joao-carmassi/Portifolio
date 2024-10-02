@@ -1,4 +1,4 @@
-const ApiLink = "https://joao-vitor-carmassi.loca.lt/data/mensagens";
+const ApiLink = "https://yeti-balanced-longhorn.ngrok-free.app/data/mensagens";
 
 async function getApi() {
   try {
