@@ -11,13 +11,12 @@ import 'swiper/css/effect-cards';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
-
 import { Button } from '@/components/ui/button';
 import scrollToContainer from '@/utils/scrowToContainer';
 import { IMessage } from '@/types/message';
 import Image from 'next/image';
-import Shader from '@/components/shader';
 import { Magnetic } from '@/components/ui/magnetic';
+import LightRays from '@/components/LightRays';
 
 type Props = IMessage['homepage']['hero'];
 
@@ -192,7 +191,20 @@ const HeroHomepage = ({ title, text1, text2, button1, button2 }: Props) => {
       id='heroHomepage'
       className='py-12 dark bg-black grid min-h-screen place-items-center relative'
     >
-      <Shader />
+      <LightRays
+        raysOrigin='top-center'
+        raysColor='#ffffff'
+        raysSpeed={1}
+        lightSpread={1}
+        rayLength={2}
+        pulsating={false}
+        fadeDistance={1}
+        saturation={1}
+        followMouse={false}
+        mouseInfluence={0.1}
+        noiseAmount={0}
+        distortion={0}
+      />
       <style>{css}</style>
       <div className='container flex flex-col items-center justify-center gap-y-8 gap-x-4 overflow-hidden text-left xl:flex-row xl:overflow-visible invisibleOnLoad pt-12 lg:pt-0'>
         <div className='w-full space-y-10 xl:w-1/2'>
@@ -241,7 +253,7 @@ const HeroHomepage = ({ title, text1, text2, button1, button2 }: Props) => {
             </Magnetic>
           </div>
         </div>
-        <div className='relative w-full xl:w-3/5'>
+        <div className='relative w-full xl:w-3/5 z-10'>
           <div className='mx-auto flex h-full items-center justify-center'>
             {domLoaded && (
               <Swiper
