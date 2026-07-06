@@ -142,7 +142,7 @@ const Footer = ({
         </div>
 
         {/* Bottom Section */}
-        <div className='flex flex-col gap-6 py-6 md:flex-row md:items-center md:justify-between md:py-4'>
+        <div className='flex flex-col gap-6 py-6 lg:flex-row lg:items-center lg:justify-between lg:py-4'>
           <nav className='grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6'>
             {navigationLinks.map((link) => (
               <button
@@ -168,7 +168,7 @@ const Footer = ({
             </button>
           </nav>
 
-          <div className='text-muted-foreground text-center text-sm md:text-right md:text-xs footer-animation'>
+          <div className='text-muted-foreground text-center text-sm lg:text-right lg:text-xs footer-animation'>
             {text} <strong>João Carmassi</strong>
           </div>
         </div>

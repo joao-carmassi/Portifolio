@@ -35,7 +35,7 @@ const DidYouKnowHomepage = ({ title }: Props) => {
     <section>
       <div className='p-6 md:p-12 text-center space-y-1.5 md:space-y-3 mx-auto max-w-7xl gap-5'>
         <H2>{title}</H2>
-        <P className='text-center md:text-lg h-7'>{fatos?.text}</P>
+        <P className='text-center md:text-lg'>{fatos?.text}</P>
       </div>
       <Divider />
     </section>

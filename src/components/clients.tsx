@@ -29,7 +29,7 @@ const Clients = ({ title, text, items }: Props): React.ReactNode => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: '#clientsHomepage',
-        start: 'top 60%',
+        start: 'top 70%',
       },
     });
 
@@ -47,7 +47,7 @@ const Clients = ({ title, text, items }: Props): React.ReactNode => {
   }, [text, items]);
 
   return (
-    <section id='clientsHomepage' className='overflow-hidden py-6 lg:py-12'>
+    <section className='overflow-hidden py-6 lg:py-12'>
       <div className='container space-y-6 md:space-y-12'>
         <div className='space-y-1.5 md:space-y-3'>
           <H2>{title}</H2>
@@ -60,6 +60,7 @@ const Clients = ({ title, text, items }: Props): React.ReactNode => {
               loop: true,
               skipSnaps: true,
             }}
+            id='clientsHomepage'
             className='w-full'
           >
             <CarouselContent>
@@ -75,7 +76,7 @@ const Clients = ({ title, text, items }: Props): React.ReactNode => {
                       rel='noopener noreferrer'
                       className='block h-full'
                     >
-                      <Card className='overflow-hidden border-none shadow-lg bg-card pt-0! gap-3 h-fit'>
+                      <Card className='overflow-hidden border-none shadow-lg bg-card pt-0! gap-4 h-fit'>
                         <CardContent className='flex h-full flex-col p-0'>
                           <DepthMedia
                             src={item.image}
