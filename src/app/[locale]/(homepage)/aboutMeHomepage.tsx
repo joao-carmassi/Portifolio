@@ -1,29 +1,38 @@
-import { Variants } from 'motion/react';
+'use client';
+
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { IMessage } from '@/types/message';
 import Grainient from '@/components/grainient/grainient';
 import { H2 } from '@/components/ui/h2';
 import ContainerCodigo from './containerCodigo';
-import * as motion from 'motion/react-client';
 import { Backlight } from '@/components/ui/backlight';
 
 type Props = IMessage['homepage']['aboutMe'];
 
-const animation: Variants = {
-  hidden: { opacity: 0, y: 150, scale: 0.95 },
-  show: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 120,
-      damping: 16,
-      delay: 0.1,
-    },
-  },
-};
-
 const AboutMeHomepage = ({ title, textMobile, textDesktop }: Props) => {
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#aboutMeHomepage',
+        start: 'top 85%',
+        once: true,
+      },
+    });
+
+    tl.from('#aboutMeHomepage', {
+      opacity: 0,
+      y: 150,
+      scale: 0.95,
+      duration: 0.9,
+      delay: 0.1,
+      ease: 'back.out(1.7)',
+    });
+  }, [title, textMobile, textDesktop]);
+
   return (
     <section className='w-full min-h-screen relative'>
       <Grainient
@@ -56,13 +65,7 @@ const AboutMeHomepage = ({ title, textMobile, textDesktop }: Props) => {
           {title}
         </H2>
         <Backlight blur={5}>
-          <motion.div
-            id='aboutMeHomepage'
-            variants={animation}
-            initial='hidden'
-            whileInView='show'
-            viewport={{ once: true }}
-          >
+          <div id='aboutMeHomepage'>
             <div className='w-full p-5 bg-white flex items-center gap-4 rounded-t-xl'>
               <span className='inline-block w-4 aspect-square rounded-full duration-300 hover:scale-110 hover:shadow-md bg-[#fb2c36]' />
               <span className='inline-block w-4 aspect-square rounded-full duration-300 hover:scale-110 hover:shadow-md bg-[#fdc700]' />
@@ -71,7 +74,7 @@ const AboutMeHomepage = ({ title, textMobile, textDesktop }: Props) => {
             <ContainerCodigo
               json={{ mobile: textMobile, desktop: textDesktop }}
             />
-          </motion.div>
+          </div>
         </Backlight>
       </div>
     </section>

@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'framer-motion';
+import { useGSAP } from '@gsap/react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -15,7 +15,8 @@ import { P } from '@/components/ui/p';
 import axios from 'axios';
 import confetti from 'canvas-confetti';
 import { ArrowRightIcon, Trash2 } from 'lucide-react';
-import { Variants } from 'motion/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useState, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import z from 'zod';
@@ -35,37 +36,6 @@ type Props = IMessage['homepage']['contactMe'];
 const access_key = 'e25d109e-87c5-431e-9bd5-89f4b0792f09';
 const API_URL = 'https://api.web3forms.com/submit';
 
-const animation: Variants[] = [
-  {
-    hidden: { opacity: 0, x: 150, scale: 0.95 },
-    show: {
-      opacity: 1,
-      x: 0,
-      scale: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 120,
-        damping: 16,
-        delay: 0.1,
-      },
-    },
-  },
-  {
-    hidden: { opacity: 0, y: 150, scale: 0.95 },
-    show: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 120,
-        damping: 16,
-        delay: 0.1,
-      },
-    },
-  },
-];
-
 const ContactMeHomepage = ({
   title,
   text,
@@ -76,6 +46,37 @@ const ContactMeHomepage = ({
 }: Props) => {
   const [enviado, setEnviado] = useState<null | boolean>(null);
   const [modalAberto, setModalAberto] = useState(false);
+
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const animations = [
+      { selector: '.contact-form-animation', x: 0, y: 150 },
+      { selector: '.contact-copy-desktop-animation', x: 150, y: 0 },
+      { selector: '.contact-copy-mobile-animation', x: 0, y: 150 },
+    ];
+
+    animations.forEach(({ selector, x, y }) => {
+      const element = document.querySelector(selector);
+
+      if (!element) return;
+
+      gsap.from(element, {
+        opacity: 0,
+        x,
+        y,
+        scale: 0.95,
+        duration: 0.9,
+        delay: 0.1,
+        ease: 'back.out(1.7)',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 85%',
+          once: true,
+        },
+      });
+    });
+  }, [title, text, form]);
 
   const schema = useMemo(() => {
     if (!form) return null;
@@ -170,13 +171,9 @@ const ContactMeHomepage = ({
         }}
       />
       <div className='md:min-h-container p-6 md:p-12 mx-auto max-w-7xl flex justify-between items-center gap-6 md:gap-12 lg:gap-20 flex-col-reverse md:flex-row z-10 relative'>
-        <motion.form
-          variants={animation[1]}
-          initial='hidden'
-          whileInView='show'
-          viewport={{ once: true, amount: 0.15 }}
+        <form
           onSubmit={handleSubmit(enviaEmail)}
-          className='flex items-center justify-end flex-1 w-full'
+          className='contact-form-animation flex items-center justify-end flex-1 w-full'
         >
           <FieldSet className='bg-card max-w-full w-full md:w-md rounded-2xl p-7 shadow-2xl border border-border'>
             <FieldGroup>
@@ -280,27 +277,19 @@ const ContactMeHomepage = ({
               </Button>
             </FieldGroup>
           </FieldSet>
-        </motion.form>
-        <motion.div
-          variants={animation[0]}
-          initial='hidden'
-          whileInView='show'
-          viewport={{ once: true, amount: 0.15 }}
-          className='hidden md:block space-y-3 flex-1'
+        </form>
+        <div
+          className='contact-copy-desktop-animation hidden md:block space-y-3 flex-1'
         >
           <H2 className='text-center md:text-start'>{title}</H2>
           <P className='text-center md:text-start'>{text}</P>
-        </motion.div>
-        <motion.div
-          variants={animation[1]}
-          initial='hidden'
-          whileInView='show'
-          viewport={{ once: true, amount: 0.15 }}
-          className='md:hidden space-y-1.5 flex-1'
+        </div>
+        <div
+          className='contact-copy-mobile-animation md:hidden space-y-1.5 flex-1'
         >
           <H2 className='text-center md:text-start'>{title}</H2>
           <P className='text-center md:text-start'>{text}</P>
-        </motion.div>
+        </div>
       </div>
       <Dialog open={enviado === true} onOpenChange={handleModal}>
         <DialogContent>

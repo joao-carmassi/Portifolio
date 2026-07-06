@@ -1,79 +1,52 @@
+'use client';
+
+import { useGSAP } from '@gsap/react';
 import { Button } from '@/components/ui/button';
 import { BookOpen, Code, Github, Laptop, Layers } from 'lucide-react';
 import { H2 } from '../../../components/ui/h2';
 import { P } from '@/components/ui/p';
 import { H3 } from '@/components/ui/h3';
-import { Variants } from 'motion/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MagicCard } from '@/components/magicui/magic-card';
-import * as motion from 'motion/react-client';
 import { IMessage } from '@/types/message';
 import Image from 'next/image';
-
-const animationPc: Variants[] = [
-  {
-    hidden: { opacity: 0, x: 150, scale: 0.95 },
-    show: {
-      opacity: 1,
-      x: 0,
-      scale: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 120,
-        damping: 16,
-        delay: 0.1,
-      },
-    },
-  },
-  {
-    hidden: { opacity: 0, x: -150, scale: 0.95 },
-    show: {
-      opacity: 1,
-      x: 0,
-      scale: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 120,
-        damping: 16,
-        delay: 0.1,
-      },
-    },
-  },
-];
-
-const animationCell: Variants[] = [
-  {
-    hidden: { opacity: 0, y: -150, scale: 0.95 },
-    show: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 120,
-        damping: 16,
-        delay: 0.1,
-      },
-    },
-  },
-  {
-    hidden: { opacity: 0, y: 150, scale: 0.95 },
-    show: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 120,
-        damping: 16,
-        delay: 0.1,
-      },
-    },
-  },
-];
 
 type Props = IMessage['homepage']['github'];
 
 const GithubHomepage = ({ title, text, cards }: Props) => {
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const animations = [
+      { selector: '.github-card-top-animation', x: 0, y: -150 },
+      { selector: '.github-media-right-animation', x: 150, y: 0 },
+      { selector: '.github-media-left-animation', x: -150, y: 0 },
+      { selector: '.github-card-bottom-animation', x: 0, y: 150 },
+    ];
+
+    animations.forEach(({ selector, x, y }) => {
+      const element = document.querySelector(selector);
+
+      if (!element) return;
+
+      gsap.from(element, {
+        opacity: 0,
+        x,
+        y,
+        scale: 0.95,
+        duration: 0.9,
+        delay: 0.1,
+        ease: 'back.out(1.7)',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 85%',
+          once: true,
+        },
+      });
+    });
+  }, [cards]);
+
   return (
     <section id='githubHomepage' className='shadow-md'>
       <div className='mx-auto max-w-7xl p-6 md:p-12 space-y-6 md:space-y-12'>
@@ -83,12 +56,8 @@ const GithubHomepage = ({ title, text, cards }: Props) => {
         </div>
         <div className='grid sm:grid-cols-2 md:grid-cols-5 lg:grid-cols-3 gap-6'>
           {/* Card 1 */}
-          <motion.div
-            viewport={{ amount: 0.15, once: true, margin: '-150px' }}
-            variants={animationCell[0]}
-            initial='hidden'
-            whileInView='show'
-            className='col-span-1 md:col-span-2 lg:col-span-1'
+          <div
+            className='github-card-top-animation col-span-1 md:col-span-2 lg:col-span-1'
           >
             <MagicCard className='rounded-xl' gradientColor='bg-card'>
               {/* Media 1 Mobile */}
@@ -144,14 +113,10 @@ const GithubHomepage = ({ title, text, cards }: Props) => {
                 </div>
               </div>
             </MagicCard>
-          </motion.div>
+          </div>
           {/* Media 1 Desktop */}
-          <motion.div
-            viewport={{ amount: 0.15, once: true }}
-            variants={animationPc[0]}
-            initial='hidden'
-            whileInView='show'
-            className='hidden md:block bg-muted rounded-xl col-span-1 md:col-span-3 lg:col-span-2'
+          <div
+            className='github-media-right-animation hidden md:block bg-muted rounded-xl col-span-1 md:col-span-3 lg:col-span-2'
           >
             <Image
               className='object-cover h-full w-full rounded-xl'
@@ -160,14 +125,10 @@ const GithubHomepage = ({ title, text, cards }: Props) => {
               width={781}
               height={410}
             />
-          </motion.div>
+          </div>
           {/* Media 2 Desktop */}
-          <motion.div
-            viewport={{ amount: 0.15, once: true }}
-            variants={animationPc[1]}
-            initial='hidden'
-            whileInView='show'
-            className='hidden md:block bg-muted rounded-xl col-span-1 md:col-span-3 lg:col-span-2 '
+          <div
+            className='github-media-left-animation hidden md:block bg-muted rounded-xl col-span-1 md:col-span-3 lg:col-span-2 '
           >
             <Image
               className='object-cover h-full w-full rounded-xl'
@@ -176,14 +137,10 @@ const GithubHomepage = ({ title, text, cards }: Props) => {
               width={781}
               height={410}
             />
-          </motion.div>
+          </div>
           {/* Card 2 */}
-          <motion.div
-            viewport={{ amount: 0.15, once: true }}
-            variants={animationCell[1]}
-            initial='hidden'
-            whileInView='show'
-            className='col-span-1 md:col-span-2 lg:col-span-1'
+          <div
+            className='github-card-bottom-animation col-span-1 md:col-span-2 lg:col-span-1'
           >
             <MagicCard className='rounded-xl' gradientColor='bg-card'>
               {/* Media 1 Mobile */}
@@ -242,7 +199,7 @@ const GithubHomepage = ({ title, text, cards }: Props) => {
                 </div>
               </div>
             </MagicCard>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
