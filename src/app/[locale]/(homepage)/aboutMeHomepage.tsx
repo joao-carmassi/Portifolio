@@ -1,5 +1,4 @@
 'use client';
-
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -7,7 +6,6 @@ import { IMessage } from '@/types/message';
 import Grainient from '@/components/grainient/grainient';
 import { H2 } from '@/components/ui/h2';
 import ContainerCodigo from './containerCodigo';
-import { Backlight } from '@/components/ui/backlight';
 
 type Props = IMessage['homepage']['aboutMe'];
 
@@ -64,18 +62,16 @@ const AboutMeHomepage = ({ title, textMobile, textDesktop }: Props) => {
         <H2 className='text-white drop-shadow-sm drop-shadow-black/25 text-center'>
           {title}
         </H2>
-        <Backlight blur={5}>
-          <div id='aboutMeHomepage'>
-            <div className='w-full p-5 bg-white flex items-center gap-4 rounded-t-xl'>
-              <span className='inline-block w-4 aspect-square rounded-full duration-300 hover:scale-110 hover:shadow-md bg-[#fb2c36]' />
-              <span className='inline-block w-4 aspect-square rounded-full duration-300 hover:scale-110 hover:shadow-md bg-[#fdc700]' />
-              <span className='inline-block w-4 aspect-square rounded-full duration-300 hover:scale-110 hover:shadow-md bg-[#05df72]' />
-            </div>
-            <ContainerCodigo
-              json={{ mobile: textMobile, desktop: textDesktop }}
-            />
+        <div id='aboutMeHomepage'>
+          <div className='w-full p-5 bg-white flex items-center gap-4 rounded-t-xl'>
+            <span className='inline-block w-4 aspect-square rounded-full duration-300 hover:scale-110 hover:shadow-md bg-[#fb2c36]' />
+            <span className='inline-block w-4 aspect-square rounded-full duration-300 hover:scale-110 hover:shadow-md bg-[#fdc700]' />
+            <span className='inline-block w-4 aspect-square rounded-full duration-300 hover:scale-110 hover:shadow-md bg-[#05df72]' />
           </div>
-        </Backlight>
+          <ContainerCodigo
+            json={{ mobile: textMobile, desktop: textDesktop }}
+          />
+        </div>
       </div>
     </section>
   );
