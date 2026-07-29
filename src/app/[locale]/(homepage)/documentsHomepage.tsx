@@ -72,7 +72,7 @@ const DocumentosHomepage = ({ title, text, docs, resume }: Props) => {
     <section
       ref={sectionContainer}
       id='documentosHomepage'
-      className='w-full min-h-container py-6 md:py-12 mx-auto flex flex-col gap-6 md:gap-12 justify-center'
+      className='bg-background w-full min-h-container py-6 md:py-12 mx-auto flex flex-col gap-6 md:gap-12 justify-center'
     >
       <div className='space-y-1.5 md:space-y-3 px-6 md:px-12'>
         <H2 className='text-center'>{title}</H2>
