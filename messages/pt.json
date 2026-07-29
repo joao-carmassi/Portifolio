@@ -73,9 +73,9 @@
       ],
       "resume": {
         "category": "Currículo",
-        "title": "Currículo Profissional em Português",
+        "title": "Currículo Profissional",
         "img": "/docs/img-curriculo-portugues.webp",
-        "details": "Acesse meu currículo completo em português, apresentando minhas habilidades, projetos e trajetória profissional na indústria de tecnologia.",
+        "details": "Acesse meu currículo completo, apresentando minhas habilidades, projetos e trajetória profissional na indústria de tecnologia.",
         "dialog": {
           "title": "Meus currículos",
           "button": "Selecione o idioma para baixar meu currículo:",

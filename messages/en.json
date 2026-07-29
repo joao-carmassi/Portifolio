@@ -77,9 +77,9 @@
       ],
       "resume": {
         "category": "Resume",
-        "title": "Professional Resume in English",
+        "title": "Professional Resume",
         "img": "/docs/img-curriculo-ingles.webp",
-        "details": "Access my full resume in English, showcasing my skills, projects, and career journey with a global perspective in the tech industry.",
+        "details": "Access my full resume, showcasing my skills, projects, and career journey with a global perspective in the tech industry.",
         "dialog": {
           "title": "My resumes",
           "button": "Select the language to download my resume:",
