@@ -8,7 +8,7 @@ import { P } from '@/components/ui/p';
 import { H3 } from '@/components/ui/h3';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MagicCard } from '@/components/magicui/magic-card';
+import { AuraEffect } from '@/components/ui/aura-beam';
 import { IMessage } from '@/types/message';
 import Image from 'next/image';
 
@@ -59,9 +59,14 @@ const GithubHomepage = ({ title, text, cards }: Props) => {
           <div
             className='github-card-top-animation col-span-1 md:col-span-2 lg:col-span-1'
           >
-            <MagicCard className='rounded-xl' gradientColor='bg-card'>
+            <AuraEffect
+              variant='glow'
+              className='w-full'
+              style={{ display: 'block' }}
+              borderWidth={1}
+            >
               {/* Media 1 Mobile */}
-              <div className='rounded-xl shadow-lg flex flex-col gap-3 md:gap-6'>
+              <div className='bg-card rounded-xl shadow-lg flex flex-col gap-3 md:gap-6'>
                 <div className='md:hidden aspect-video w-full bg-background rounded-xl mb-3'>
                   <Image
                     className='object-cover h-full w-full rounded-xl rounded-b-none'
@@ -112,7 +117,7 @@ const GithubHomepage = ({ title, text, cards }: Props) => {
                   </Button>
                 </div>
               </div>
-            </MagicCard>
+            </AuraEffect>
           </div>
           {/* Media 1 Desktop */}
           <div
@@ -142,9 +147,14 @@ const GithubHomepage = ({ title, text, cards }: Props) => {
           <div
             className='github-card-bottom-animation col-span-1 md:col-span-2 lg:col-span-1'
           >
-            <MagicCard className='rounded-xl' gradientColor='bg-card'>
+            <AuraEffect
+              variant='glow'
+              className='w-full'
+              style={{ display: 'block' }}
+              borderWidth={1}
+            >
               {/* Media 1 Mobile */}
-              <div className='rounded-xl shadow-lg flex flex-col gap-3 md:gap-6'>
+              <div className='bg-card rounded-xl shadow-lg flex flex-col gap-3 md:gap-6'>
                 <div className='md:hidden aspect-video w-full bg-background rounded-xl mb-3'>
                   <Image
                     className='object-cover h-full w-full rounded-xl rounded-b-none'
@@ -198,7 +208,7 @@ const GithubHomepage = ({ title, text, cards }: Props) => {
                   </Button>
                 </div>
               </div>
-            </MagicCard>
+            </AuraEffect>
           </div>
         </div>
       </div>
