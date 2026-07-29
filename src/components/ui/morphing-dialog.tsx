@@ -8,6 +8,7 @@ import React, {
   useMemo,
   useRef,
   useState,
+  useSyncExternalStore,
 } from 'react';
 import {
   motion,
@@ -156,10 +157,8 @@ function MorphingDialogContent({
 }: MorphingDialogContentProps) {
   const { setIsOpen, isOpen, uniqueId, triggerRef } = useMorphingDialog();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [firstFocusableElement, setFirstFocusableElement] =
-    useState<HTMLElement | null>(null);
-  const [lastFocusableElement, setLastFocusableElement] =
-    useState<HTMLElement | null>(null);
+  const firstFocusableElementRef = useRef<HTMLElement | null>(null);
+  const lastFocusableElementRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -167,6 +166,8 @@ function MorphingDialogContent({
         setIsOpen(false);
       }
       if (event.key === 'Tab') {
+        const firstFocusableElement = firstFocusableElementRef.current;
+        const lastFocusableElement = lastFocusableElementRef.current;
         if (!firstFocusableElement || !lastFocusableElement) return;
 
         if (event.shiftKey) {
@@ -188,7 +189,7 @@ function MorphingDialogContent({
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [setIsOpen, firstFocusableElement, lastFocusableElement]);
+  }, [setIsOpen]);
 
   useEffect(() => {
     if (isOpen) {
@@ -197,13 +198,15 @@ function MorphingDialogContent({
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
       );
       if (focusableElements && focusableElements.length > 0) {
-        setFirstFocusableElement(focusableElements[0] as HTMLElement);
-        setLastFocusableElement(
-          focusableElements[focusableElements.length - 1] as HTMLElement,
-        );
+        firstFocusableElementRef.current = focusableElements[0] as HTMLElement;
+        lastFocusableElementRef.current = focusableElements[
+          focusableElements.length - 1
+        ] as HTMLElement;
         (focusableElements[0] as HTMLElement).focus();
       }
     } else {
+      firstFocusableElementRef.current = null;
+      lastFocusableElementRef.current = null;
       document.body.classList.remove('overflow-hidden');
       triggerRef.current?.focus();
     }
@@ -242,14 +245,16 @@ export type MorphingDialogContainerProps = {
   style?: React.CSSProperties;
 };
 
+const emptySubscribe = () => () => {};
+
 function MorphingDialogContainer({ children }: MorphingDialogContainerProps) {
   const { isOpen, uniqueId } = useMorphingDialog();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    return () => setMounted(false);
-  }, []);
+  // Client-only gate: createPortal needs document.body, absent during SSR.
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
 
   if (!mounted) return null;
 
