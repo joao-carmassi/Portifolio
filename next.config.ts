@@ -10,7 +10,8 @@ const nextConfig: NextConfig = {
     typedEnv: true,
   },
   images: {
-    formats: ['image/avif'],
+    formats: ['image/avif', 'image/webp'],
+    qualities: [75, 92],
     remotePatterns: [
       {
         protocol: 'https',

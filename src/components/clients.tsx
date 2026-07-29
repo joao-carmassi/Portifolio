@@ -82,7 +82,8 @@ const Clients = ({ title, text, items }: Props): React.ReactNode => {
                             src={item.image}
                             alt={item.title}
                             className='h-72 lg:h-82'
-                            sizes='(max-width: 639px) 80vw, (max-width: 767px) 60vw, (max-width: 1023px) 40vw, (max-width: 1535px) 28vw, 25vw'
+                            quality={92}
+                            sizes='(max-width: 639px) 92vw, (max-width: 767px) 69vw, (max-width: 1023px) 46vw, (max-width: 1535px) 32vw, 29vw'
                           />
                         </CardContent>
                         <CardFooter className='flex flex-col gap-1.5 md:gap-3 items-start'>

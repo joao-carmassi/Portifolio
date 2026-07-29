@@ -139,16 +139,22 @@
           "image": "/clients/qf.png"
         },
         {
+          "title": "Higgx",
+          "description": "Plataforma abierta de IA que orquesta cotizaciones, planificación y producción para metalurgia de alto mix — construida sobre 10+ años de experiencia en Quotation Factory.",
+          "url": "https://higgx.app",
+          "image": "/clients/higgx.png"
+        },
+        {
           "title": "Prisma UI",
           "description": "Biblioteca de componentes React de código abierto para construir interfaces de usuario hermosas, accesibles y personalizables — construida con Radix UI y Tailwind CSS.",
           "url": "https://prismaui.com/",
           "image": "/clients/prisma.png"
         },
         {
-          "title": "Higgx",
-          "description": "Plataforma abierta de IA que orquesta cotizaciones, planificación y producción para metalurgia de alto mix — construida sobre 10+ años de experiencia en Quotation Factory.",
-          "url": "https://higgx.app",
-          "image": "/clients/higgx.png"
+          "title": "Dr Jean Almeida",
+          "description": "Médico psiquiatra en São Paulo, en la Avenida Paulista — atención a adultos con depresión, ansiedad, TDAH y burnout, con escucha atenta y seguimiento longitudinal.",
+          "url": "https://drjeanalmeida.com",
+          "image": "/clients/jean.png"
         },
         {
           "title": "Loja do VRF",

@@ -139,16 +139,22 @@
           "image": "/clients/qf.png"
         },
         {
+          "title": "Higgx",
+          "description": "Open AI platform orchestrating quoting, planning, and production for high-mix metalworking — built on 10+ years of Quotation Factory expertise.",
+          "url": "https://higgx.app",
+          "image": "/clients/higgx.png"
+        },
+        {
           "title": "Prisma UI",
           "description": "Open source React component library for building beautiful, accessible, and customizable user interfaces — built with Radix UI and Tailwind CSS.",
           "url": "https://prismaui.com/",
           "image": "/clients/prisma.png"
         },
         {
-          "title": "Higgx",
-          "description": "Open AI platform orchestrating quoting, planning, and production for high-mix metalworking — built on 10+ years of Quotation Factory expertise.",
-          "url": "https://higgx.app",
-          "image": "/clients/higgx.png"
+          "title": "Dr Jean Almeida",
+          "description": "Psychiatrist in São Paulo, on Avenida Paulista — treating adults with depression, anxiety, adult ADHD, and burnout through careful listening and longitudinal care.",
+          "url": "https://drjeanalmeida.com",
+          "image": "/clients/jean.png"
         },
         {
           "title": "Loja do VRF",
